@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Colab / Jupyter
+.ipynb_checkpoints/
+
+# Secrets
+.env
+*.env
+*.key
+*.pem
+credentials*.json
+service-account*.json
+
+# MaleCNS large data / derived matrices
+*.npz
+*.npy
+*.feather
+*.parquet
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+nodes.csv.gz
+connectome-weights*
+body-neurotransmitters*
+body-annotations*
+
+# Experimental outputs
+results*/
+runs/
+checkpoints/
+*.log
+
+# Keep small curated CSV summaries if explicitly force-added.

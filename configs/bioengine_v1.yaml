@@ -1,0 +1,21 @@
+version: "1.0-compat"
+
+legacy_dynamics:
+  leak: 0.2
+  gain: 1.2
+  sign_mode: biological_fast
+
+plasticity:
+  # Screening values, not biological constants.
+  eligibility_decay: 0.95
+  target_rms_budget: 0.001
+  max_abs_step: 0.01
+  fast_decay: 0.995
+  slow_decay: 1.0
+  consolidation_rate: 0.02
+
+principles:
+  separate_fast_sign_from_modulation: true
+  plastic_edges_only_state: true
+  compare_rules_at_equal_rms_budget: true
+  preserve_legacy_dynamics_until_compatibility_gate_passes: true
