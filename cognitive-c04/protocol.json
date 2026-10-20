@@ -1,0 +1,31 @@
+{
+  "version": "Cognitive-C0.4-DEV",
+  "checkpoint_parent": "V62 balanced read-only",
+  "excluded_branches": [
+    "MAND",
+    "MaleCNS Principal"
+  ],
+  "neurons": 8192,
+  "kc_population": 4064,
+  "kc_native_width": 32,
+  "epochs": 6,
+  "seeds": [
+    7403,
+    7411,
+    7429
+  ],
+  "modes": [
+    "adaptive_live",
+    "fixed_live",
+    "frozen",
+    "shuffled"
+  ],
+  "old_probes": 128,
+  "old_replay_per_epoch": 32,
+  "train_replay_per_epoch": 12,
+  "physical_growth": false,
+  "heldout_used": false,
+  "promotion": false,
+  "min_dev_accuracy": 0.65,
+  "min_advantage_over_all_controls_pp": 5
+}
