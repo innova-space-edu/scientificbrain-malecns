@@ -1,0 +1,27 @@
+{
+  "schema": "MAND-V62-DEV-1",
+  "parent": "V62 balanced seed 20292111 epoch20",
+  "checkpoint_sha256": "35c6930133aa263ba298968393e40c124b376736cacb35a79b31c9179c1be367",
+  "neurons": 8192,
+  "plastic_synapses": 241529,
+  "total_edges": 1612858,
+  "stages": {
+    "audit": "completed",
+    "metaplasticity": "proposal_only",
+    "homeostasis": "proposal_only",
+    "consolidation": "dry_run_only",
+    "rewiring": "blocked",
+    "neurogenesis": "blocked"
+  },
+  "controls": [
+    "balanced",
+    "frozen",
+    "shuffled",
+    "mand_live"
+  ],
+  "seeds": 3,
+  "max_old_loss_percentage_points": 5,
+  "heldout_access": false,
+  "automatic_promotion": false,
+  "parent_writes": false
+}
