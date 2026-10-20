@@ -1,0 +1,44 @@
+{
+  "version": "Cognitive-C0.5-StableCredit-DEV",
+  "project": "MaleCNS-Cognitive-only",
+  "base": "C0.4",
+  "neurons": 8192,
+  "epochs": 6,
+  "seeds": [
+    7403,
+    7411,
+    7429
+  ],
+  "modes": [
+    "adaptive_live",
+    "fixed_live",
+    "frozen",
+    "shuffled"
+  ],
+  "train": 72,
+  "dev": 32,
+  "old_probes": 128,
+  "old_replay": 32,
+  "train_replay": 12,
+  "kc_by_epoch": [
+    32,
+    64,
+    64,
+    64,
+    64,
+    64
+  ],
+  "same_confidence_gate_for_trainable": true,
+  "pending_discard_required": true,
+  "adaptive_damping_bounds": [
+    0.54,
+    0.63
+  ],
+  "adaptive_margin_bounds": [
+    0.000135,
+    0.000165
+  ],
+  "physical_growth": false,
+  "promoted": false,
+  "heldout_access": false
+}
