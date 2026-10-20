@@ -1,0 +1,24 @@
+{
+  "version": "MaleCNS-Cognitive-C0-V62/0.2.0",
+  "type": "DEV-only independent",
+  "checkpoint": "gs://scientificbrain-compute-artifacts-260133939682/malecns/v62-20261019/dev/20292111_balanced/recovery_epoch20.zip",
+  "neurons": 8192,
+  "existing_associations": 416,
+  "curriculum": {
+    "symbols": 24,
+    "math": 40,
+    "logic": 40,
+    "train": 72,
+    "test": 32
+  },
+  "controls": [
+    "live",
+    "frozen",
+    "shuffled"
+  ],
+  "regulator_protected_compatible": false,
+  "heldout_forbidden": true,
+  "no_parent_writes": true,
+  "automatic_promotion": false,
+  "actual_training_executed": false
+}
