@@ -1,0 +1,41 @@
+{
+  "project": "MaleCNS-Cognitive",
+  "version": "C0.8-NativeThreePhases-DEV/0.1",
+  "seed": 7403,
+  "status": "DEV_COMPLETE",
+  "native_learning_only": true,
+  "adapter_present": false,
+  "parent": "C0.7 native_balanced ep24 Kaggle owned checkpoint",
+  "parent_checkpoint_read_only": true,
+  "neurons": 8192,
+  "phases": [
+    {
+      "name": "double",
+      "epochs": 10,
+      "known": 248,
+      "new": 248
+    },
+    {
+      "name": "rehearsal",
+      "epochs": 6,
+      "examples": 496,
+      "pseudolabeled_historical_cues": 416
+    },
+    {
+      "name": "novel_once",
+      "unique_new_questions": 248,
+      "training_presentations_per_question": 1
+    }
+  ],
+  "eval_heldout_H": 64,
+  "controls": [
+    "native_interleaved",
+    "native_uniform",
+    "frozen",
+    "shuffled"
+  ],
+  "kaggle_slug": "malecns-cognitive-c08-native-double-retrain-novel",
+  "report_expected": "MaleCNS_C08_Native_Long_7403/report.json",
+  "promoted": false,
+  "merged_to_principal": false
+}
