@@ -1,0 +1,33 @@
+{
+  "version": "MaleCNS-Cognitive-C0.7-NativeLearning-DEV/0.1",
+  "parent": "V62 balanced read-only",
+  "origin": "Cognitive C0.6",
+  "adapter": false,
+  "physical_neurons": 8192,
+  "kc_effective": 64,
+  "train": 248,
+  "original_dev": 32,
+  "reused_stress_dev": 32,
+  "final_only_transfer": 32,
+  "epochs": [
+    3,
+    24
+  ],
+  "modes": [
+    "native_balanced",
+    "native_uniform",
+    "frozen",
+    "shuffled"
+  ],
+  "fixed_old_replay_per_epoch": 32,
+  "fixed_train_replay_per_epoch": 64,
+  "change_native_margin_or_damping": false,
+  "original_checkpoint_writes": false,
+  "base_seed": 7403,
+  "additional_unit_test_seeds": [
+    7411,
+    7429
+  ],
+  "heldout_tuning": false,
+  "automatic_promotion": false
+}
