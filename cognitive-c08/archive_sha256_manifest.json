@@ -1,0 +1,33 @@
+{
+  "files": {
+    "C08_SMOKE_SOURCE": {
+      "sha256": "562675750ee8087b1e83795bb3e858c149fd8ee407b8d956f9d428168067366c",
+      "bytes": 14427,
+      "parts": [
+        "C08_SMOKE_SOURCE_00.txt",
+        "C08_SMOKE_SOURCE_01.txt",
+        "C08_SMOKE_SOURCE_02.txt",
+        "C08_SMOKE_SOURCE_03.txt"
+      ]
+    },
+    "C07_PINNED_SOURCE": {
+      "sha256": "f4c3bb0237bb5b3aaecc28402de4b9c946c0178b86b613ed2ab78c166c2c9062",
+      "bytes": 8830,
+      "parts": [
+        "C07_PINNED_SOURCE_00.txt",
+        "C07_PINNED_SOURCE_01.txt"
+      ]
+    },
+    "C08_LONG_REPORT": {
+      "sha256": "8381635d80d3d43ee12c4fa04d777f2eaabb06441b1d0a7ab9bec3cae815ecab",
+      "bytes": 16923,
+      "parts": [
+        "C08_LONG_REPORT_00.txt",
+        "C08_LONG_REPORT_01.txt",
+        "C08_LONG_REPORT_02.txt",
+        "C08_LONG_REPORT_03.txt"
+      ]
+    }
+  },
+  "sources": "private owner Kaggle; no model checkpoint bytes"
+}
