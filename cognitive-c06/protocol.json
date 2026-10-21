@@ -1,0 +1,34 @@
+{
+  "project": "MaleCNS-Cognitive",
+  "version": "C0.6-LongStream-DEV",
+  "exclusive": true,
+  "physical_neurons": 8192,
+  "kc_population": 4064,
+  "native_cue_width": 32,
+  "effective_kc_width": 64,
+  "original_checkpoint": "V62 balanced read-only",
+  "train_examples": 248,
+  "original_dev": 32,
+  "novel_stress_dev": 32,
+  "epochs_smoke": 3,
+  "epochs_long": 24,
+  "checks": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24
+  ],
+  "modes": [
+    "adaptive_live",
+    "fixed_live",
+    "frozen",
+    "shuffled"
+  ],
+  "gpu": false,
+  "massive_running": false,
+  "status": "smoke_failed_at_source_transfer",
+  "original_checkpoint_untouched": true,
+  "promote": false
+}
