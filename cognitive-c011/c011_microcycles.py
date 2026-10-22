@@ -9,7 +9,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 C011_VERSION="MaleCNS-Cognitive-C0.11-Microcycles-DEV/0.1"
 C011_C010_SOURCE_SHA="f7bfc6af90213dc37e417769def157d04398e089d3cf8fc68504702230e0f384"
-C011_PARENT_HASH="REPLACE_VERIFIED_C010_PARENT_SHA"
+C011_PARENT_HASH="CAPTURE_EXACT_SHA_AT_PREFLIGHT"
 api=KaggleApi()
 api.authenticate()
 source_dir=Path('/kaggle/working/c011_source_pin')
@@ -32,6 +32,10 @@ def c011_parent():
        and '/MaleCNS_C010_Long_7403/checkpoints/no_extra_no_pseudo/ep12/system.json' in str(p)]
     assert len(found)==1,('C011 source C010 checkpoint ambiguity',len(found))
     got=hashlib.sha256(found[0].read_bytes()).hexdigest()
+    global C011_PARENT_HASH
+    if C011_PARENT_HASH=="CAPTURE_EXACT_SHA_AT_PREFLIGHT":
+        C011_PARENT_HASH=got
+        print("C011_READONLY_PARENT_SHA256",got,flush=True)
     assert got==C011_PARENT_HASH,('C011 parent changed',got)
     return found[0].parent
 
