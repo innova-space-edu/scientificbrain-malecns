@@ -74,9 +74,10 @@ def c010_run(seed=7403,epochs=4,smoke=False,output="/kaggle/working/MaleCNS_C010
     for area in C08_AREAS:
         ix=[i for i,p in enumerate(pool) if p['area']==area]
         scrambled[ix]=rng.permutation(scrambled[ix])
-    historical={int(i):int(y) for i,y,v in scores(initial,list(range(416)),seed)}
+    parent_snapshot=checkpoint_with_cues(initial,out/'parent_snapshot')
+    historical={int(i):int(y) for i,y,v in scores(parent_snapshot,list(range(416)),seed)}
     probes=old_probe_ids(416,128,seed)
-    original={int(i):int(y) for i,y,v in scores(initial,probes,seed)}
+    original={int(i):int(y) for i,y,v in scores(parent_snapshot,probes,seed)}
     assert len(historical)==416 and len(original)==128
     baseline=c08_metric(parent,old,D,E,H,seed,original,'FINAL')
     baseline_cohorts=c09_cohort_scores(parent,old,seed)
