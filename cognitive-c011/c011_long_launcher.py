@@ -9,7 +9,7 @@ d=Path('/kaggle/working/c011_verified_source');d.mkdir(parents=True,exist_ok=Tru
 api.kernels_pull('esthefano/malecns-cognitive-c011-micro-smoke',path=str(d),metadata=False)
 files=list(d.glob('*.py'));assert len(files)==1,files
 source=files[0].read_text()
-expected='047ec372ddb83b06ec683affa51da5f70649e2eee204d9c52d4d802991bdd418'
+expected='c5bc7ad4fa3d533f5fb7a7917ae48a49504a1d0b7898daed92f6c2ba0fc15e52'
 assert hashlib.sha256(source.encode()).hexdigest()==expected,'C011 source changed. Abort.'
 old="""c011_tests()
 SMOKE=True
