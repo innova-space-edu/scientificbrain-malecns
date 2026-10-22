@@ -9,7 +9,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 
 C011_VERSION="MaleCNS-Cognitive-C0.11-Microcycles-DEV/0.1"
 C011_C010_SOURCE_SHA="f7bfc6af90213dc37e417769def157d04398e089d3cf8fc68504702230e0f384"
-C011_PARENT_HASH="CAPTURE_EXACT_SHA_AT_PREFLIGHT"
+C011_PARENT_HASH="35bf6a8fbdcec1e83b1dfacfd232028d30d43403a1e662b8aa92d7044463adb6"
 api=KaggleApi()
 api.authenticate()
 source_dir=Path('/kaggle/working/c011_source_pin')
@@ -41,11 +41,12 @@ def c011_parent():
 
 def c011_new_holdouts():
     """Two disjoint, balanced symbolic/math/logic sets, never fed back."""
-    def rows(prefix,base):
+    def rows(prefix,base,alphabet):
+        assert len(alphabet)==8 and all(len(c)==1 for c in alphabet)
         out=[]
         for i in range(8):
-            a=f'{prefix}_sym{i:02d}'
-            b=f'{prefix}_sym{(i+1)%8:02d}'
+            a=alphabet[i]
+            b=alphabet[(i+1)%8]
             out.append(dict(area='symbols',op='equal',args=[a,a],target=1,cohort=prefix))
             out.append(dict(area='symbols',op='equal',args=[a,b],target=-1,cohort=prefix))
         for i in range(12):
@@ -53,13 +54,14 @@ def c011_new_holdouts():
             out.append(dict(area='math',op='add',args=[a,b,a+b],target=1,cohort=prefix))
             out.append(dict(area='math',op='add',args=[a,b,a+b+2+(i%5)],target=-1,cohort=prefix))
         for i in range(12):
-            a=f'{prefix}_u{i}';b=f'{prefix}_v{i}';c=f'{prefix}_w{i}'
+            a=alphabet[i%8];b=alphabet[(i+1+i//8)%8];c=alphabet[(i+3+2*(i//8))%8]
+            assert len({a,b,c})==3
             out.append(dict(area='logic',op='transitivity',args=[a,b,c,a,c],target=1,cohort=prefix))
             out.append(dict(area='logic',op='transitivity',args=[a,b,c,c,a],target=-1,cohort=prefix))
         assert len(out)==64
         assert sum(r['target']==1 for r in out)==32
         return out
-    F,G=rows('F_valid',1000),rows('G_final',2000)
+    F,G=rows('F_valid',1000,'αβγδεζηθ'),rows('G_final',2000,'ικλμνξοπ')
     signatures=[(r['area'],r['op'],tuple(r['args'])) for r in F+G]
     assert len(set(signatures))==128
     return F,G
