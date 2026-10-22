@@ -1,0 +1,30 @@
+{
+  "version": "MaleCNS-Cognitive-C0.10-Consolidation-DEV/0.1",
+  "parent_checkpoint": "C09 native_interleaved epoch08",
+  "parent_system_sha256": "6b2352f305e5e9f897cfca4120408bbc3a0de9a68beb6e7c4e8258f184c4c0e9",
+  "only_native_plasticity": true,
+  "adapter": false,
+  "physical_neurons": 8192,
+  "train_true_labeled": 744,
+  "epochs": 4,
+  "repeat_extra_per_epoch": 372,
+  "old_pseudolabel_once": 416,
+  "seed": 7403,
+  "additional_unit_seeds": [
+    7411,
+    7429
+  ],
+  "arms": [
+    "no_extra_no_pseudo",
+    "extra_only",
+    "pseudo_only",
+    "extra_and_pseudo",
+    "frozen_full",
+    "shuffled_full"
+  ],
+  "kaggle_smoke": "esthefano/malecns-cognitive-c010-ablation-smoke",
+  "kaggle_long": "esthefano/malecns-cognitive-c010-full-factorial",
+  "status": "submitted_waiting_results",
+  "merge_to_principal": false,
+  "promoted": false
+}
