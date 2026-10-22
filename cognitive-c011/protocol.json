@@ -1,0 +1,69 @@
+{
+  "version": "MaleCNS-Cognitive-C0.11-Microcycles-DEV/0.1",
+  "scope": "MaleCNS-Cognitive only",
+  "promoted": false,
+  "merge_to_principal": false,
+  "parent": {
+    "source": "esthefano/malecns-cognitive-c0-10-corrected-full-factorial",
+    "checkpoint": "MaleCNS_C010_Long_7403/checkpoints/no_extra_no_pseudo/ep12",
+    "sha256": "35bf6a8fbdcec1e83b1dfacfd232028d30d43403a1e662b8aa92d7044463adb6",
+    "readonly": true,
+    "neurons": 8192,
+    "registered_cues": 2224
+  },
+  "train": {
+    "cohorts": {
+      "A": 72,
+      "B": 80,
+      "C": 96,
+      "D": 248,
+      "E": 248
+    },
+    "total": 744,
+    "cycles": 8,
+    "epochs_per_cycle": 1,
+    "extra_rehearsals": 0,
+    "pseudo_labels": 0,
+    "adapter": false,
+    "native_synaptic_feedback": true,
+    "seed": 7403
+  },
+  "arms": [
+    "micro_select",
+    "micro_always",
+    "continuous"
+  ],
+  "selection": {
+    "train_macro_gain_min": 0.001,
+    "baseline_cohort_drop_cap": {
+      "A": 0.03,
+      "B": 0.03,
+      "C": 0.03,
+      "D": 0.04,
+      "E": 0.04
+    },
+    "validation_F_decrease_cap": 0.03125,
+    "historical_agreement_floor": 0.95,
+    "not_used_for_selection": [
+      "previous_DEV",
+      "previous_H",
+      "final_G"
+    ]
+  },
+  "evaluation": {
+    "F_validation_new": 64,
+    "G_final_holdout_new": 64,
+    "old_H_DEV_exploratory": true,
+    "synthetic_binary_tasks": true
+  },
+  "code": [
+    "c011_microcycles.py",
+    "c011_long_launcher.py"
+  ],
+  "kaggle": {
+    "preflight": "esthefano/malecns-cognitive-c011-preflight",
+    "smoke": "esthefano/malecns-cognitive-c011-micro-smoke",
+    "long": "esthefano/malecns-cognitive-c011-micro-long"
+  },
+  "status": "submitted running, not yet completed"
+}
