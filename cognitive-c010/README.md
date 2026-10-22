@@ -30,6 +30,6 @@ Los resultados se miden al concluir cada época: A/B/C, D, E, DEV anterior, estr
 - `c010_long_launcher.py`: reutiliza el código Kaggle verificado mediante SHA-256 y realiza smoke obligatorio antes del experimento de cuatro épocas.
 - [Validación del checkpoint](https://www.kaggle.com/code/esthefano/malecns-cognitive-c010-parent-check)
 - [Prueba corta](https://www.kaggle.com/code/esthefano/malecns-cognitive-c010-ablation-smoke)
-- [Entrenamiento completo 2x2](https://www.kaggle.com/code/esthefano/malecns-cognitive-c010-full-factorial)
+- [Entrenamiento completo 2x2](https://www.kaggle.com/code/esthefano/malecns-cognitive-c0-10-corrected-full-factorial)
 
 Estado de la implementación: lanzada en Kaggle; resultados finales por verificar. No hay promoción ni fusión, y se preservan los checkpoints C0.8/C0.9 originales.
