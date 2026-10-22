@@ -12,7 +12,7 @@ api.kernels_pull("esthefano/malecns-cognitive-c010-ablation-smoke",path=str(d),m
 files=list(d.glob("*.py"))
 assert len(files)==1,files
 source=files[0].read_text()
-expected="727a35c7c63d5f7904566a70125e4274c4b61dbb79f467ebe021e2f2432b870e"
+expected="f7bfc6af90213dc37e417769def157d04398e089d3cf8fc68504702230e0f384"
 assert hashlib.sha256(source.encode()).hexdigest()==expected,"C010 smoke source mismatch; fail closed"
 needle="""c010_tests()
 SMOKE=True
