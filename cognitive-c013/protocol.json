@@ -1,0 +1,19 @@
+{
+  "version": "MaleCNS-Cognitive C0.13",
+  "parent_sha": "a19561e365c9aff1b547e0ed1a2dfddadad8b66685b63bed60910c53fac3eacd",
+  "source": "C012 ep11",
+  "only_cognitive": true,
+  "epochs": 1,
+  "new_train": 744,
+  "new_test": 192,
+  "old_replay": 0,
+  "adapter": false,
+  "pseudo_labels": 0,
+  "prior_cues": 2608,
+  "native_synaptic_only": true,
+  "old_cohorts_evaluation_only": true,
+  "read_only_parent": true,
+  "kaggle": "esthefano/malecns-cognitive-c013-new-only",
+  "status": "submitted",
+  "promoted": false
+}
