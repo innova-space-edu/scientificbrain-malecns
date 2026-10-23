@@ -97,16 +97,18 @@ def c013_run():
     c013_validate_new(pool,new,test,SEED)
     assert all(row['target'] in (-1,1) for row in new+test)
     orig_cues=state.cues.copy()
-    inputs=encode_corpus(new+test,state.core.nkc)
-    assert inputs.shape==(1872,32),inputs.shape
+    inputs=encode_corpus(new,state.core.nkc)
+    test_inputs=encode_corpus(test,state.core.nkc)
+    assert inputs.shape==(1488,32),inputs.shape
+    assert test_inputs.shape==(384,32),test_inputs.shape
     identities={tuple(sorted(map(int,c))) for c in orig_cues}
     assert len(identities)==2608, 'preexisting cues are duplicated'
-    for q in inputs:
+    for q in np.vstack([inputs,test_inputs]):
         key=tuple(sorted(map(int,q)))
         assert key not in identities,'New cue matches a previous one: abort'
         identities.add(key)
     state.cues=np.vstack([state.cues,inputs])
-    assert state.cues.shape==(4480,32)
+    assert state.cues.shape==(4096,32)
     base=checkpoint_with_cues(state,out/'baseline_readonly_parent_copy')
     probes=old_probe_ids(416,128,SEED)
     oldpreds={int(q):int(y) for q,y,value in scores(base,probes,SEED)}
@@ -147,9 +149,19 @@ def c013_run():
     checkpoint=checkpoint_with_cues(state,out/'checkpoints'/'epoch01_new_only')
     after_old=c011_eval(checkpoint,pool,old,D,E,H,c011_new_holdouts()[0],SEED,oldpreds,2224)
     after_new=c011_score_holdout(checkpoint,new_idx,new,SEED)
-    # Unseen T is tested first time only after the entire single epoch.
-    before_test=c011_score_holdout(base,test_idx,test,SEED)
-    after_test=c011_score_holdout(checkpoint,test_idx,test,SEED)
+    # The native stimulus registry is capped at 4096 entries; use separate
+    # evaluation-only registries to score unseen T after training is complete.
+    # Never expose test stimuli to feedback or include them in the live training registry.
+    test_base=load(parent,threads=2)
+    test_base.cues=np.vstack([orig_cues,test_inputs])
+    assert test_base.cues.shape==(2992,32)
+    test_base_snapshot=checkpoint_with_cues(test_base,out/'diagnostic_test_parent')
+    test_final=load(checkpoint,threads=2)
+    test_final.cues=np.vstack([orig_cues,test_inputs])
+    assert test_final.cues.shape==(2992,32)
+    test_final_snapshot=checkpoint_with_cues(test_final,out/'diagnostic_test_trained')
+    before_test=c011_score_holdout(test_base_snapshot,2608,test,SEED)
+    after_test=c011_score_holdout(test_final_snapshot,2608,test,SEED)
     unique_theta=int(np.count_nonzero(state.core.trainer.params['theta']!=theta_parent))
     report=dict(version=VER,status='DEV_COMPLETE',seed=SEED,epochs=1,adapter=False,
       native_synaptic_training=True,old_experiences_trained=0,pseudo_labels=0,extra_rehearsal=0,
