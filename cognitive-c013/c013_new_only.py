@@ -134,7 +134,7 @@ def c013_run():
             for y in (1,-1):
                 if bins[(area,y)]:order.append(bins[(area,y)].pop())
     assert len(order)==len(set(order))==744
-    assert len(order)==sum(len(v) for v in bins)+744
+    assert len(order)==sum(len(v) for v in bins.values())+744
     for pos,i in enumerate(order):
         ex=new[i]
         y=int(ex['target'])
